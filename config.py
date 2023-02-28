@@ -5,13 +5,13 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'secret-key'
 
-    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'helloworld7007'
-    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'dGC1TMosvrRtHFqWmfigJQ43EOg8j0Ag4AOCPevgYLPXGSv9ChxjWNOjm9T0Hpkpl98BMa1QyN+o+AStKkBd+w=='
+    BLOB_ACCOUNT = os.environ.get('BLOB_ACCOUNT') or 'cmsstoragepython'
+    BLOB_STORAGE_KEY = os.environ.get('BLOB_STORAGE_KEY') or 'E6dztiYDlow4Dut1tl+lsVsh6RyZWI0R9B1Yi8XnnhxZ4C5GqCosFAKPpH3Sbt8slOlDK+u18t0x+AStSAqw9g=='
     BLOB_CONTAINER = os.environ.get('BLOB_CONTAINER') or 'images'
 
-    SQL_SERVER = os.environ.get('SQL_SERVER') or 'lineview.database.windows.net'
-    SQL_DATABASE = os.environ.get('SQL_DATABASE') or 'LinneView7007'
-    SQL_USER_NAME = os.environ.get('SQL_USER_NAME') or 'lineview'
+    SQL_SERVER = os.environ.get('SQL_SERVER') or 'cmsprojectserver.database.windows.net'
+    SQL_DATABASE = os.environ.get('SQL_DATABASE') or 'CMSDB'
+    SQL_USER_NAME = os.environ.get('SQL_USER_NAME') or 'CMS'
     SQL_PASSWORD = os.environ.get('SQL_PASSWORD') or 'Godfather2403'
     # Below URI may need some adjustments for driver version, based on your OS, if running locally
     SQLALCHEMY_DATABASE_URI = 'mssql+pyodbc://' + SQL_USER_NAME + '@' + SQL_SERVER + ':' + SQL_PASSWORD + '@' + SQL_SERVER + ':1433/' + SQL_DATABASE  + '?driver=ODBC+Driver+17+for+SQL+Server'
@@ -19,7 +19,7 @@ class Config(object):
 
     ### Info for MS Authentication ###
     ### As adapted from: https://github.com/Azure-Samples/ms-identity-python-webapp ###
-    CLIENT_SECRET = "ENTER_CLIENT_SECRET_HERE"
+    CLIENT_SECRET = "fON8Q~y~AanoMzc2MgYoAQr6Np53_unZQVmxzdrc"
     # In your production app, Microsoft recommends you to use other ways to store your secret,
     # such as KeyVault, or environment variable as described in Flask's documentation here:
     # https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
@@ -30,7 +30,7 @@ class Config(object):
     AUTHORITY = "https://login.microsoftonline.com/common"  # For multi-tenant app, else put tenant name
     # AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 
-    CLIENT_ID = "ENTER_CLIENT_ID_HERE"
+    CLIENT_ID = "8b93fe05-3d87-4c95-b5cb-2fa760c42fa4"
 
     REDIRECT_PATH = "/getAToken"  # Used to form an absolute URL; must match to app's redirect_uri set in AAD
 

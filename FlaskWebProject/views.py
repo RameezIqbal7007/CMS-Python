@@ -67,7 +67,7 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
-            app.logger.error('Login unsuccessfull')
+            app.logger.error('Login Failed')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
@@ -101,6 +101,7 @@ def authorized():
         user = User.query.filter_by(username="admin").first()
         login_user(user)
         _save_cache(cache)
+        app.logger.warning("Login Successfull through Active Directory")
     return redirect(url_for('home'))
 
 @app.route('/logout')
@@ -113,7 +114,7 @@ def logout():
         return redirect(
             Config.AUTHORITY + "/oauth2/v2.0/logout" +
             "?post_logout_redirect_uri=" + url_for("login", _external=True))
-
+    app.logger.warning("Successfully Logout")
     return redirect(url_for('login'))
 
 def _load_cache():
